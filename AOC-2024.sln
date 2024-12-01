@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AOC-2024", "AOC-2024.csproj", "{655563AD-CB8C-49ED-A5E1-7245EC7E7F01}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{655563AD-CB8C-49ED-A5E1-7245EC7E7F01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{655563AD-CB8C-49ED-A5E1-7245EC7E7F01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{655563AD-CB8C-49ED-A5E1-7245EC7E7F01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{655563AD-CB8C-49ED-A5E1-7245EC7E7F01}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
