@@ -4,13 +4,24 @@ namespace AOC
 {
     public class Program
     {
-        static async Task Main(string[] args)
+        public static async Task Main(string[] args)
         {
             // Manually doing it for now
             // Will probably do a smarter one later this week
 
             // Fetch input for day
-            var input = await Website.GetInput(2023, 1);
+            Console.Write("Use Real Input? (y/N): ");
+            var response = Console.ReadKey();
+            Console.WriteLine();
+
+            string[] input = response.Key == ConsoleKey.Y ? await Website.GetInput(2024, 1) : await Website.GetExampleInput(2024, 1);
+
+            if (input.Count() == 0)
+            {
+                Console.WriteLine("No input detected; exiting...");
+                Console.ReadKey();
+                return;
+            }
 
             var dayone = new Day01();
             dayone.Parse(input);
