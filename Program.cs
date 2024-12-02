@@ -14,7 +14,7 @@ namespace AOC
             var response = Console.ReadKey();
             Console.WriteLine();
 
-            string[] input = response.Key == ConsoleKey.Y ? await Website.GetInput(2024, 1) : await Website.GetExampleInput(2024, 1);
+            string[] input = response.Key == ConsoleKey.Y ? await InputHelper.GetInput(2024, 2) : await InputHelper.GetExampleInput(2024, 2);
 
             if (input.Count() == 0)
             {
@@ -23,7 +23,7 @@ namespace AOC
                 return;
             }
 
-            var dayone = new Day01();
+            var dayone = new Day02();
             dayone.Parse(input);
 
             var result1 = dayone.PartOne();
@@ -31,6 +31,8 @@ namespace AOC
 
             var result2 = dayone.PartTwo();
             Console.WriteLine($"Part 2: {result2}");
+
+            Console.ReadKey();
         }
     }
 }
