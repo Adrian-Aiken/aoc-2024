@@ -1,20 +1,15 @@
-﻿using AOC.Y2024;
-
-namespace AOC
+﻿namespace AOC
 {
     public class Program
     {
         public static async Task Main(string[] args)
         {
-            // Manually doing it for now
-            // Will probably do a smarter one later this week
-
             // Fetch input for day
             Console.Write("Use Real Input? (y/N): ");
             var response = Console.ReadKey();
             Console.WriteLine();
 
-            string[] input = response.Key == ConsoleKey.Y ? await InputHelper.GetInput(2024, 2) : await InputHelper.GetExampleInput(2024, 2);
+            string[] input = response.Key == ConsoleKey.Y ? await InputHelper.GetInput(Settings.Year, Settings.Day) : await InputHelper.GetExampleInput(Settings.Year, Settings.Day);
 
             if (input.Count() == 0)
             {
@@ -23,13 +18,15 @@ namespace AOC
                 return;
             }
 
-            var dayone = new Day02();
-            dayone.Parse(input);
+            var type = Type.GetType($"AOC.Y{Settings.Year:D4}.Day{Settings.Day:D2}");
+            var dayProblem = (IProblem)Activator.CreateInstance(type);
 
-            var result1 = dayone.PartOne();
+            dayProblem.Parse(input);
+
+            var result1 = dayProblem.PartOne();
             Console.WriteLine($"Part 1: {result1}");
 
-            var result2 = dayone.PartTwo();
+            var result2 = dayProblem.PartTwo();
             Console.WriteLine($"Part 2: {result2}");
 
             Console.ReadKey();

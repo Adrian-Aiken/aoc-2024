@@ -1,9 +1,10 @@
-using System.Xml.XPath;
-using Microsoft.VisualBasic;
+using System.Net;
+using System.Net.Http;
+using System.Text.Json;
 
 namespace AOC
 {
-    public static class Website
+    public static class InputHelper
     {
         private static readonly string inputDirectory = "input";
         private static readonly string exampleDirectory = "input/example";
@@ -16,17 +17,22 @@ namespace AOC
                 return await File.ReadAllLinesAsync(filename);
             }
 
-            // Need to figure out website stuff;
-            // Just relying on file input for now
-            //var address = new Uri("https://adventofcode.com");
-            //using (var client = new HttpClient())
-            //{
-            //    var response = await client.GetAsync($"https://adventofcode.com/{year}/day/{day}/input");
-            //    var responseContent = await response.Content.ReadAsStringAsync();
-            //    Console.WriteLine(responseContent);
-            //}
+            var baseAddress = new Uri("https://adventofcode.com/");
+            var cookies = new CookieContainer();
 
-            string[] result = new string[2];
+            using var handler = new HttpClientHandler() { CookieContainer = cookies };
+            using var client = new HttpClient(handler) { BaseAddress = baseAddress };
+            cookies.Add(baseAddress, new Cookie("session", Settings.SessionCookie));
+
+            var inputData = await client.GetStringAsync($"{year}/day/{day}/input");
+
+            string[] result = inputData.Split('\n').Where(s => !string.IsNullOrEmpty(s)).ToArray();
+            if (result.Count() > 0)
+            {
+                Directory.CreateDirectory(exampleDirectory);
+                await File.WriteAllLinesAsync(filename, result);
+            }
+
             return result;
         }
 
