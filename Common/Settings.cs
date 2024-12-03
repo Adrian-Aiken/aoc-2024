@@ -10,9 +10,9 @@ namespace AOC
 
         static Settings()
         {
-            if (File.Exists("settings.local.json"))
+            if (File.Exists("settings.json"))
             {
-                string settingsJson = File.ReadAllText("settings.local.json");
+                string settingsJson = File.ReadAllText("settings.json");
                 JsonElement settings = JsonSerializer.Deserialize<JsonElement>(settingsJson);
 
                 sessionCookie = settings.GetProperty("SessionCookie").GetString() ?? string.Empty;
