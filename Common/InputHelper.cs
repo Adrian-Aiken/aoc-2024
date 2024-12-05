@@ -26,14 +26,19 @@ namespace AOC
 
             var inputData = await client.GetStringAsync($"{year}/day/{day}/input");
 
-            string[] result = inputData.Split('\n').Where(s => !string.IsNullOrEmpty(s)).ToArray();
+            var result = inputData.Split('\n').ToList();
+            while (string.IsNullOrEmpty(result.Last()))
+            {
+                result.RemoveAt(result.Count - 1);
+            }
+
             if (result.Count() > 0)
             {
                 Directory.CreateDirectory(exampleDirectory);
                 await File.WriteAllLinesAsync(filename, result);
             }
 
-            return result;
+            return result.ToArray();
         }
 
         public static async Task<string[]> GetExampleInput(int year, int day)
