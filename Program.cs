@@ -1,10 +1,12 @@
-﻿namespace AOC
+﻿using System.Diagnostics;
+
+namespace AOC
 {
     public class Program
     {
         public static async Task Main(string[] args)
         {
-            // Fetch input for day
+            // ------- Fetch input for day ------------
             Console.Write("Use Real Input? (y/N): ");
             var response = Console.ReadKey();
             Console.WriteLine();
@@ -23,11 +25,30 @@
 
             dayProblem.Parse(input);
 
+            // ----------- Run Problems --------------
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
             var result1 = dayProblem.PartOne();
-            Console.WriteLine($"Part 1: {result1}");
+            stopwatch.Stop();
+            var part1Time = stopwatch.ElapsedMilliseconds;
 
+            stopwatch.Reset();
+            stopwatch.Start();
             var result2 = dayProblem.PartTwo();
-            Console.WriteLine($"Part 2: {result2}");
+            stopwatch.Stop();
+            var part2Time = stopwatch.ElapsedMilliseconds;
+
+            // ----- Prepare and print results --------
+            var resultWidth = Math.Max(result1.ToString().Length, result2.ToString().Length);
+            var timeWidth = Math.Max(part1Time.ToString().Length, part2Time.ToString().Length);
+
+            Console.WriteLine();
+            Console.WriteLine($"+---------{string.Empty.PadLeft(resultWidth + timeWidth, '-')}--+");
+            Console.WriteLine($"| {string.Empty.PadLeft(timeWidth)}Results{string.Empty.PadLeft(resultWidth)}   |");
+            Console.WriteLine($"+---+-{string.Empty.PadLeft(resultWidth, '-')}-+-{string.Empty.PadLeft(timeWidth, '-')}---+");
+            Console.WriteLine($"| 1 | {result1.ToString().PadLeft(resultWidth)} | {part1Time.ToString().PadLeft(timeWidth)}ms |");
+            Console.WriteLine($"| 2 | {result2.ToString().PadLeft(resultWidth)} | {part2Time.ToString().PadLeft(timeWidth)}ms |");
+            Console.WriteLine($"+---------{string.Empty.PadLeft(resultWidth + timeWidth, '-')}--+");
 
             Console.ReadKey();
         }
