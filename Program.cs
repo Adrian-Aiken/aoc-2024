@@ -18,8 +18,8 @@
                 return;
             }
 
-            var type = Type.GetType($"AOC.Y{Settings.Year:D4}.Day{Settings.Day:D2}");
-            var dayProblem = (IProblem)Activator.CreateInstance(type);
+            var type = Type.GetType($"AOC.Y{Settings.Year:D4}.Day{Settings.Day:D2}") ?? throw new Exception("The Type does not seem to exist");
+            var dayProblem = (IProblem)(Activator.CreateInstance(type) ?? throw new Exception("The Day Does not seem to exist"));
 
             dayProblem.Parse(input);
 
