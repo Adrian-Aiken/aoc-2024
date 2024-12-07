@@ -7,12 +7,12 @@ namespace AOC.Y2024
 
         }
 
-        public int PartOne()
+        public long PartOne()
         {
             return -1;
         }
 
-        public int PartTwo()
+        public long PartTwo()
         {
             return -1;
         }
