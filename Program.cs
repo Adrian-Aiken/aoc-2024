@@ -23,10 +23,15 @@ namespace AOC
             var type = Type.GetType($"AOC.Y{Settings.Year:D4}.Day{Settings.Day:D2}") ?? throw new Exception("The Type does not seem to exist");
             var dayProblem = (IProblem)(Activator.CreateInstance(type) ?? throw new Exception("The Day Does not seem to exist"));
 
-            dayProblem.Parse(input);
 
             // ----------- Run Problems --------------
             Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+            dayProblem.Parse(input);
+            stopwatch.Stop();
+            var parseTime = stopwatch.ElapsedMilliseconds;
+
+            stopwatch.Reset();
             stopwatch.Start();
             var result1 = dayProblem.PartOne();
             stopwatch.Stop();
@@ -39,13 +44,14 @@ namespace AOC
             var part2Time = stopwatch.ElapsedMilliseconds;
 
             // ----- Prepare and print results --------
-            var resultWidth = Math.Max(result1.ToString().Length, result2.ToString().Length);
-            var timeWidth = Math.Max(part1Time.ToString().Length, part2Time.ToString().Length);
+            var resultWidth = new[] { 0, result1, result2 }.Select(s => s.ToString().Length).Max();
+            var timeWidth = new[] { parseTime, part1Time, part2Time }.Select(t => t.ToString().Length).Max();
 
             Console.WriteLine();
             Console.WriteLine($"+---------{string.Empty.PadLeft(resultWidth + timeWidth, '-')}--+");
             Console.WriteLine($"| {string.Empty.PadLeft(timeWidth)}Results{string.Empty.PadLeft(resultWidth)}   |");
             Console.WriteLine($"+---+-{string.Empty.PadLeft(resultWidth, '-')}-+-{string.Empty.PadLeft(timeWidth, '-')}---+");
+            Console.WriteLine($"| P | {"".PadLeft(resultWidth)} | {parseTime.ToString().PadLeft(timeWidth)}ms |");
             Console.WriteLine($"| 1 | {result1.ToString().PadLeft(resultWidth)} | {part1Time.ToString().PadLeft(timeWidth)}ms |");
             Console.WriteLine($"| 2 | {result2.ToString().PadLeft(resultWidth)} | {part2Time.ToString().PadLeft(timeWidth)}ms |");
             Console.WriteLine($"+---------{string.Empty.PadLeft(resultWidth + timeWidth, '-')}--+");
