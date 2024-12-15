@@ -51,5 +51,29 @@ namespace AOC
             }
             Console.WriteLine();
         }
+
+        public static (int, int) Find2D<T>(IEnumerable<IEnumerable<T>> grid, T value)
+        {
+            int x = 0;
+            foreach (var row in grid)
+            {
+                int y = 0;
+                foreach (var v in row)
+                {
+                    if (v.Equals(value)) return (x, y);
+                    y++;
+                }
+                x++;
+            }
+
+            return (-1, -1);
+        }
+
+        public static void Swap2D<T>(List<List<T>> grid, int x, int y, int nx, int ny)
+        {
+            T temp = grid[x][y];
+            grid[x][y] = grid[nx][ny];
+            grid[nx][ny] = temp;
+        }
     }
 }
