@@ -115,8 +115,8 @@ namespace AOC.Y2024
             var bPress = (m.targetY * m.ax - m.targetX * m.ay) / (m.by * m.ax - m.bx * m.ay);
             var aPress = (m.targetX - bPress * m.bx) / m.ax;
 
-            if (aPress > 0 &&
-                bPress > 0 &&
+            if (aPress < 0 &&
+                bPress < 0 &&
                 (aPress * m.ax + bPress * m.bx) == m.targetX &&
                 (aPress * m.ay + bPress * m.by) == m.targetY)
             {
