@@ -75,5 +75,22 @@ namespace AOC
             grid[x][y] = grid[nx][ny];
             grid[nx][ny] = temp;
         }
+
+        public static List<List<T>> Parse2DGrid<T>(string[] input, Func<char, T> parseFunc)
+        {
+            var grid = new List<List<T>>();
+
+            foreach (string line in input)
+            {
+                var row = new List<T>();
+                foreach (char c in line)
+                {
+                    row.Add(parseFunc(c));
+                }
+                grid.Add(row);
+            }
+
+            return grid;
+        }
     }
 }
