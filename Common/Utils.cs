@@ -1,3 +1,4 @@
+using System.Collections.Immutable;
 using System.Data;
 
 namespace AOC
@@ -91,6 +92,56 @@ namespace AOC
             }
 
             return grid;
+        }
+
+        public static List<List<T>> BlankSquareGrid<T>(int side, T fillItem)
+        {
+            return BlankGrid(side, side, fillItem);
+        }
+
+        public static List<List<T>> BlankGrid<T>(int height, int width, T fillItem)
+        {
+            var grid = new List<List<T>>();
+
+            for (int x = 0; x < height; x++)
+            {
+                var row = new List<T>();
+                for (int y = 0; y < width; y++)
+                {
+                    row.Add(fillItem);
+                }
+                grid.Add(row);
+            }
+
+            return grid;
+        }
+
+        public static List<(int, int)> GetShortestPath<T>(List<List<T>> grid, (int, int) start, (int, int) end, Func<T, bool> spotValidator)
+        {
+            var seen = new HashSet<(int, int)>();
+            var queue = new Queue<ImmutableList<(int, int)>>();
+            queue.Enqueue(ImmutableList.Create(start));
+
+            while (queue.Any())
+            {
+                var curPath = queue.Dequeue();
+                var (x, y) = curPath.Last();
+
+                if (seen.Contains((x, y))) continue;
+                seen.Add((x, y));
+
+                if (!IsInBounds(grid, x, y)) continue;
+                if (!spotValidator(grid[x][y])) continue;
+
+                if ((x, y) == end) return curPath.ToList();
+
+                queue.Enqueue(curPath.Add((x + 1, y)));
+                queue.Enqueue(curPath.Add((x, y + 1)));
+                queue.Enqueue(curPath.Add((x - 1, y)));
+                queue.Enqueue(curPath.Add((x, y - 1)));
+            }
+
+            return new List<(int, int)>();
         }
     }
 }
