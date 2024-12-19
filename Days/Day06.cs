@@ -22,7 +22,7 @@ namespace AOC.Y2024
             }
         }
 
-        public long PartOne()
+        public object PartOne()
         {
             var testGrid = new List<List<char>>();
             foreach (var s in grid)
@@ -57,7 +57,7 @@ namespace AOC.Y2024
             return testGrid.SelectMany(s => s).Count(c => c == 'X');
         }
 
-        public long PartTwo()
+        public object PartTwo()
         {
             int looping = 0;
             for (int i = 0; i < grid.Count; i++)

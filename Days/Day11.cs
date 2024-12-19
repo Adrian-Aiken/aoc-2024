@@ -10,12 +10,12 @@ namespace AOC.Y2024
             baseStones = input[0].Split(' ').Select(s => long.Parse(s)).ToList();
         }
 
-        public long PartOne()
+        public object PartOne()
         {
             return GetCount(25);
         }
 
-        public long PartTwo()
+        public object PartTwo()
         {
             return GetCount(75);
         }

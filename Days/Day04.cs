@@ -15,7 +15,7 @@ namespace AOC.Y2024
             }
         }
 
-        public long PartOne()
+        public object PartOne()
         {
             int count = 0;
 
@@ -37,7 +37,7 @@ namespace AOC.Y2024
             return count;
         }
 
-        public long PartTwo()
+        public object PartTwo()
         {
             int count = 0;
 

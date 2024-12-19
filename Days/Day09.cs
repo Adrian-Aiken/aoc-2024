@@ -34,7 +34,7 @@ namespace AOC.Y2024
             }
         }
 
-        public long PartOne()
+        public object PartOne()
         {
             var memory = new List<int>(originalMemory);
             int firstBlank = 0;
@@ -54,7 +54,7 @@ namespace AOC.Y2024
             return getChecksum(memory);
         }
 
-        public long PartTwo()
+        public object PartTwo()
         {
             var memory = new List<int>(originalMemory);
 

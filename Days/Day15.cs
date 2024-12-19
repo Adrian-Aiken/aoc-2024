@@ -21,7 +21,7 @@ namespace AOC.Y2024
             }
         }
 
-        public long PartOne()
+        public object PartOne()
         {
             var warehouse = Utils.Duplicate2DList(baseWarehouse);
 
@@ -41,7 +41,7 @@ namespace AOC.Y2024
             return GetGpsSum(warehouse, 'O');
         }
 
-        public long PartTwo()
+        public object PartTwo()
         {
             var warehouse = new List<List<char>>();
             foreach (var baseRow in baseWarehouse)

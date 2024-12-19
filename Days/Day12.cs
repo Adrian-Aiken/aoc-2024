@@ -22,7 +22,7 @@ namespace AOC.Y2024
             }
         }
 
-        public long PartOne()
+        public object PartOne()
         {
             long sum = 0;
             foreach (var plot in plotData)
@@ -34,7 +34,7 @@ namespace AOC.Y2024
             return sum;
         }
 
-        public long PartTwo()
+        public object PartTwo()
         {
             long sum = 0;
             foreach (var plot in plotData)

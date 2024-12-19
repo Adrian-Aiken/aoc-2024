@@ -76,7 +76,7 @@ namespace AOC.Y2024
             program = input[4].Substring(9).Split(',').Select(s => int.Parse(s)).ToArray();
         }
 
-        public long PartOne()
+        public object PartOne()
         {
             long steps = 0;
             var computer = new Computer(a, b, c, program);
@@ -86,7 +86,7 @@ namespace AOC.Y2024
             return steps;
         }
 
-        public long PartTwo()
+        public object PartTwo()
         {
 
             var result = ProgramDFS(0, 0);

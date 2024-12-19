@@ -12,7 +12,7 @@ namespace AOC.Y2024
             }
         }
 
-        public long PartOne()
+        public object PartOne()
         {
             int safe = 0;
             foreach (var report in reports)
@@ -26,7 +26,7 @@ namespace AOC.Y2024
             return safe;
         }
 
-        public long PartTwo()
+        public object PartTwo()
         {
             int safe = 0;
             foreach (var report in reports)

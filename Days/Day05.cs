@@ -30,7 +30,7 @@ namespace AOC.Y2024
             }
         }
 
-        public long PartOne()
+        public object PartOne()
         {
             int sum = 0;
             foreach (var update in updates)
@@ -44,7 +44,7 @@ namespace AOC.Y2024
             return sum;
         }
 
-        public long PartTwo()
+        public object PartTwo()
         {
             int sum = 0;
             foreach (var update in updates)

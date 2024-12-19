@@ -27,7 +27,7 @@ namespace AOC.Y2024
             }
         }
 
-        public long PartOne()
+        public object PartOne()
         {
             var antiNodes = new HashSet<(int, int)>();
             foreach (var antenna in antennas.Values)
@@ -55,7 +55,7 @@ namespace AOC.Y2024
             return antiNodes.Count;
         }
 
-        public long PartTwo()
+        public object PartTwo()
         {
             var antiNodes = new HashSet<(int, int)>();
             foreach (var antenna in antennas.Values)

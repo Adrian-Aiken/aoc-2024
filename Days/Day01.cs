@@ -15,7 +15,7 @@ namespace AOC.Y2024
             }
         }
 
-        public long PartOne()
+        public object PartOne()
         {
             var leftSorted = new List<int>(left);
             var rightSorted = new List<int>(right);
@@ -32,7 +32,7 @@ namespace AOC.Y2024
             return sum;
         }
 
-        public long PartTwo()
+        public object PartTwo()
         {
             var freqDict = right.GroupBy(x => x).ToDictionary(x => x.Key, x => x.Count());
 

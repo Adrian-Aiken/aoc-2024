@@ -60,12 +60,12 @@ namespace AOC.Y2024
             }
         }
 
-        public long PartOne()
+        public object PartOne()
         {
             return GetSafetyScore(robots);
         }
 
-        public long PartTwo()
+        public object PartTwo()
         {
             return seconds;
         }

@@ -33,18 +33,18 @@ namespace AOC
 
             stopwatch.Reset();
             stopwatch.Start();
-            var result1 = dayProblem.PartOne();
+            var result1 = dayProblem.PartOne().ToString() ?? "Unknown";
             stopwatch.Stop();
             var part1Time = stopwatch.ElapsedMilliseconds;
 
             stopwatch.Reset();
             stopwatch.Start();
-            var result2 = dayProblem.PartTwo();
+            var result2 = dayProblem.PartTwo().ToString() ?? "Unknown";
             stopwatch.Stop();
             var part2Time = stopwatch.ElapsedMilliseconds;
 
             // ----- Prepare and print results --------
-            var resultWidth = new[] { 0, result1, result2 }.Select(s => s.ToString().Length).Max();
+            var resultWidth = new[] { "0", result1, result2 }.Select(s => s.Length).Max();
             var timeWidth = new[] { parseTime, part1Time, part2Time }.Select(t => t.ToString().Length).Max();
 
             Console.WriteLine();
@@ -52,8 +52,8 @@ namespace AOC
             Console.WriteLine($"| {string.Empty.PadLeft(timeWidth)}Results{string.Empty.PadLeft(resultWidth)}   |");
             Console.WriteLine($"+---+-{string.Empty.PadLeft(resultWidth, '-')}-+-{string.Empty.PadLeft(timeWidth, '-')}---+");
             if (parseTime > 10) Console.WriteLine($"| P | {"".PadLeft(resultWidth)} | {parseTime.ToString().PadLeft(timeWidth)}ms |");
-            Console.WriteLine($"| 1 | {result1.ToString().PadLeft(resultWidth)} | {part1Time.ToString().PadLeft(timeWidth)}ms |");
-            Console.WriteLine($"| 2 | {result2.ToString().PadLeft(resultWidth)} | {part2Time.ToString().PadLeft(timeWidth)}ms |");
+            Console.WriteLine($"| 1 | {result1.PadLeft(resultWidth)} | {part1Time.ToString().PadLeft(timeWidth)}ms |");
+            Console.WriteLine($"| 2 | {result2.PadLeft(resultWidth)} | {part2Time.ToString().PadLeft(timeWidth)}ms |");
             Console.WriteLine($"+---------{string.Empty.PadLeft(resultWidth + timeWidth, '-')}--+");
 
             Console.ReadKey();

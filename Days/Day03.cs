@@ -18,7 +18,7 @@ namespace AOC.Y2024
             memory = string.Join(string.Empty, input);
         }
 
-        public long PartOne()
+        public object PartOne()
         {
             var matches = Regex.Matches(memory, mulPattern);
 
@@ -32,7 +32,7 @@ namespace AOC.Y2024
             return sum;
         }
 
-        public long PartTwo()
+        public object PartTwo()
         {
             var matches = Regex.Matches(memory, mulSwitchPattern);
 

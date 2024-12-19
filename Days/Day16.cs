@@ -13,13 +13,13 @@ namespace AOC.Y2024
             maze = Utils.Parse2DGrid(input, (char c) => c);
         }
 
-        public long PartOne()
+        public object PartOne()
         {
             bestScore = GetLowestScore(maze);
             return bestScore;
         }
 
-        public long PartTwo()
+        public object PartTwo()
         {
             GetMazePaths(maze);
             return bestPaths.Count;

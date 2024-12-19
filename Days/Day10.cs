@@ -12,7 +12,7 @@ namespace AOC.Y2024
             }
         }
 
-        public long PartOne()
+        public object PartOne()
         {
             int sum = 0;
             for (int x = 0; x < map.Count; x++)
@@ -26,7 +26,7 @@ namespace AOC.Y2024
             return sum;
         }
 
-        public long PartTwo()
+        public object PartTwo()
         {
             int sum = 0;
             for (int x = 0; x < map.Count; x++)

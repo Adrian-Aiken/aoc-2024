@@ -4,7 +4,7 @@ namespace AOC
     {
         public void Parse(string[] input);
 
-        public long PartOne();
-        public long PartTwo();
+        public object PartOne();
+        public object PartTwo();
     }
 }
