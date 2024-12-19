@@ -16,7 +16,7 @@ namespace AOC.Y2024
             }
         }
 
-        public long PartOne()
+        public object PartOne()
         {
             var grid = Utils.BlankSquareGrid(GRID_SIZE + 1, '.');
 
@@ -29,7 +29,7 @@ namespace AOC.Y2024
             return Utils.GetShortestPath(grid, (0, 0), (GRID_SIZE, GRID_SIZE), c => c != '#').Count - 1;
         }
 
-        public long PartTwo()
+        public object PartTwo()
         {
             var grid = Utils.BlankSquareGrid(GRID_SIZE + 1, '.');
 
