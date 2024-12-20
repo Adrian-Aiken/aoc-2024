@@ -77,6 +77,11 @@ namespace AOC
             grid[nx][ny] = temp;
         }
 
+        public static List<List<char>> Parse2DGrid(string[] input)
+        {
+            return Parse2DGrid(input, (c) => c);
+        }
+
         public static List<List<T>> Parse2DGrid<T>(string[] input, Func<char, T> parseFunc)
         {
             var grid = new List<List<T>>();
