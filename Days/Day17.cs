@@ -81,9 +81,8 @@ namespace AOC.Y2024
             long steps = 0;
             var computer = new Computer(a, b, c, program);
             do steps++; while (computer.Step());
-            Console.WriteLine($"Part 1 Output: {string.Join(',', computer.output.Select(i => i.ToString()))}");
 
-            return steps;
+            return $"{string.Join(',', computer.output.Select(i => i.ToString()))}";
         }
 
         public object PartTwo()

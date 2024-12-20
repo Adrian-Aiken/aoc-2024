@@ -38,8 +38,7 @@ namespace AOC.Y2024
                 grid[x][y] = '#';
                 if (Utils.GetShortestPath(grid, (0, 0), (GRID_SIZE, GRID_SIZE), c => c != '#').Count == 0)
                 {
-                    Console.WriteLine($"Byte: {y},{x}");
-                    return 0;
+                    return $"{y},{x}";
                 }
             }
 
